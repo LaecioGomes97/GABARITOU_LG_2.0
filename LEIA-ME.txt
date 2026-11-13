@@ -1,0 +1,23 @@
+# Gabaritou — PWA para GitHub Pages
+
+## Arquivos
+- `index.html`: seu aplicativo original com metadados PWA e registro do service worker.
+- `manifest.webmanifest`: nome, ícones e comportamento de instalação.
+- `sw.js`: cache do aplicativo para permitir abrir a interface sem internet.
+- `icons/`: ícones do aplicativo.
+
+## Publicar no GitHub Pages
+1. Abra o repositório GitHub onde deseja publicar o Gabaritou.
+2. Envie todos os arquivos e a pasta `icons` para a raiz do repositório.
+3. Em **Settings > Pages**, escolha a branch (normalmente `main`) e a pasta `/ (root)`.
+4. Salve e aguarde o GitHub publicar.
+5. Abra o endereço HTTPS do GitHub Pages no Safari do iPhone.
+6. Toque em **Compartilhar > Adicionar à Tela de Início**.
+
+## Importante sobre dados e sincronização
+O HTML original já possui um banco local baseado em `localStorage` quando executado fora do ambiente Claude. Nesta publicação, provas, alunos e correções ficam no navegador/aparelho em que foram criados. Eles não são sincronizados automaticamente entre dispositivos. Use a exportação/importação de arquivos JSON que já existe no aplicativo para transferir dados.
+
+O service worker armazena o núcleo do aplicativo para permitir reabertura offline depois da primeira visita online. Recursos externos, como fontes do Google, podem não estar disponíveis sem internet. Faça um teste real no iPhone depois da publicação.
+
+## Atualizar o aplicativo
+Quando substituir arquivos no GitHub, o service worker pode manter a versão anterior por um curto período. Feche e reabra o site; se necessário, atualize a página algumas vezes. O cache será atualizado pelo navegador.
